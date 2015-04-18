@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div id="forweek" class="loading">
+        <div>
+            时间：<select>
+                <option>星期一</option>
+                <option>星期二</option>
+                <option>星期三</option>
+                <option>星期四</option>
+                <option>星期五</option>
+                <option>星期六</option>
+                <option>星期日</option>
+            </select>
+        </div>
+        <div>
+            站名：<select>
+                <option>双龙变</option>
+                <option>丹溪变</option>
+                <option>芝堰变</option>
+                <option>吴宁变</option>
+                <option>信安变</option>
+                <option>夏金变</option>
+            </select>
+        </div>
+        <div>
+            提醒内容：<input type="text" />
+        </div>
+        <div>
+            <input type="button" value="提交" class="submit" />&nbsp;<input type="button" value="取消"
+                onclick="hidemask();" />
+        </div>
+    </div>
+    <div id="formonth" class="loading">
+        <div>
+            时间：<input type="text" onchange="testnumber(this,1,28)"  />日<br /> （请输入数字，范围1-28）
+        </div>
+        <div>
+            站名：<select>
+                <option>双龙变</option>
+                <option>丹溪变</option>
+                <option>芝堰变</option>
+                <option>吴宁变</option>
+                <option>信安变</option>
+                <option>夏金变</option>
+            </select>
+        </div>
+        <div>
+            提醒内容：<input type="text" />
+        </div>
+        <div>
+            <input type="button" value="提交" class="submit" />&nbsp;<input type="button" value="取消"
+                onclick="hidemask();" />
+        </div>
+    </div>
+    <div id="foryear" class="loading">
+        <div>
+            时间：<input type="text" style="width:25px" onchange="testnumber(this,1,12)" />月 <input type="text" style="width:25px" onchange="testnumber(this,1,31)"/>日
+        </div>
+        <div>
+            站名：<select>
+                <option>双龙变</option>
+                <option>丹溪变</option>
+                <option>芝堰变</option>
+                <option>吴宁变</option>
+                <option>信安变</option>
+                <option>夏金变</option>
+            </select>
+        </div>
+        <div>
+            提醒内容：<input type="text" />
+        </div>
+        <div>
+            <input type="button" value="提交" class="submit" />&nbsp;<input type="button" value="取消"
+                onclick="hidemask();" />
+        </div>
+    </div>
+</body>
+</html>

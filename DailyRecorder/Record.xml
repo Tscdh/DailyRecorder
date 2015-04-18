@@ -1,0 +1,27 @@
+﻿<!--Made by DH at 23th,Nov,2014-->
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+  <SLB>
+    <text1></text1>
+    <text2></text2>
+    <text3></text3>
+  </SLB>
+  <DXB>
+    <text1></text1>
+    <text2></text2>
+    <text3></text3>
+  </DXB>
+  <ZYB>
+    <text1></text1>
+    <text2></text2>
+    <text3></text3>
+  </ZYB>
+  <WNB>
+    <text1></text1>
+    <text2></text2>
+    <text3></text3>
+  </WNB>
+  <ALL>
+    <text></text>
+  </ALL>
+</root> 

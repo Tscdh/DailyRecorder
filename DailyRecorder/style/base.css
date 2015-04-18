@@ -1,0 +1,183 @@
+/* CSS Document */
+body
+{
+	text-align:center;
+	z-index:10;
+}
+#loading-mask{
+        position:absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        z-index:200;
+        background-color:gray;
+        filter: Alpha(Opacity=80);
+        Opacity:0.8;
+}
+.loading{
+        position:absolute;
+        left:30%;
+        top:40%;
+        padding:10px;
+        z-index:201;
+        height:auto;
+        width:400px;
+        background:#ffffff;
+}
+.loading div{
+        
+        padding:10px;
+}
+.wrap
+{
+    border-top: #069 2px solid;
+    padding-top:5px;
+}
+.banner
+{
+    background:url(images/banner.png) no-repeat center;
+    height:130px;
+}
+.menu
+{
+	display:block;
+	text-align:center;
+	height:40px;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:10px;
+}
+.menu ul
+{
+	display:block;
+	clear:both;
+}
+.menu ul li
+{
+	display:block;
+	float:left;
+}
+.nav
+{
+	display:block;
+	height:40px;
+	line-height:40px;
+	width:199px;
+	font-weight:bold;
+	color:White;
+	background:#369;
+	border-right:1px solid #f0f0f0;
+}
+.nav:hover
+{
+	background:#933;
+}
+.navselected 
+{
+    color:yellow;
+}
+.main
+{
+    min-height:500px;
+    _height:500px;
+}
+.footer
+{
+    height:50px;
+    border-top: #069 5px solid;
+	padding-top: 10px;
+	margin-top: 20px;
+	padding-bottom: 10px;
+}
+#indeximg
+{
+    background:url(images/bg1.jpg) no-repeat center;
+    width:980px;
+    height:670px;
+    margin-left:auto;
+	margin-right:auto;
+}
+.title
+{
+	margin-top:2px;
+	margin-bottom:2px;
+	
+	padding:5px;
+	border:1px solid #FFFFFF;
+	background:#00cc00;
+	cursor:pointer;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.normal
+{
+	display:none;
+	width:1000px;
+	margin-left:auto;
+	margin-right:auto;
+}
+.text
+{
+	width:100%;
+}
+
+.item
+{
+	display:inline;
+	width:100px;
+	border:1px solid #060;
+	margin:5px 100px 5px 100px;
+	padding:2px 10px 2px 10px;
+	background:#3F3;
+}
+.selected
+{
+	background:#FF0;
+}
+#searchdiv
+{
+    margin:15px 100px 15px 100px;
+}
+.listdiv
+{
+    width:1000px;
+    margin-left:auto;
+    margin-right:auto;
+    padding:20px;
+    text-align:center;
+}
+.listdiv table
+{
+    margin-left:auto;
+    margin-right:auto;
+    text-align:center;
+    width:800px;
+}
+#dataBelow
+{
+    
+}
+#dataBelow a
+{
+    color:Blue;
+    cursor:pointer;
+}
+#dataBelow td
+{
+    padding-top:5px;
+    padding-bottom:5px;
+    text-align:center;
+}
+.hindid
+{
+    display:none;
+}
+#WorkList td
+{
+    padding:15px;
+    border:1px solid #0f0f0f;
+}
+
