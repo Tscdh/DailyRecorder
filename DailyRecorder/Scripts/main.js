@@ -28,37 +28,7 @@ $(document).ready(function () {
 
 });
 
-//执行修改
 
-function sendAjax(a) {
-    var onedata = new Object;
-    onedata.station = a.next("input").val();
-    onedata.text1 = a.parent().parent(".normal").find("textarea").eq(0).text();
-    onedata.text2 = a.parent().parent(".normal").find("textarea").eq(1).text();
-    onedata.text3 = a.parent().parent(".normal").find("textarea").eq(2).text();
-    onedata = JSON.stringify(onedata);
-    var aj = $.ajax({
-        url: '../AjaxHandler.asmx/WriteData', // 跳转到 action    
-        
-        data: onedata,
-        type: 'post',
-        dataType: 'json',
-        success: function (reply) {
-            if (reply == "true") {
-                // view("修改成功！");    
-                alert("修改成功！");
-                window.location.reload();
-            } else {
-                alert(reply);
-            }
-        },
-        error: function (e) {
-            // view("异常！");
-            alert(e.responseText);
-            //alert("本次修改失败！");
-        }
-    });
-}
 
 function ChangeOther(a) {
     var onedata = new Object;

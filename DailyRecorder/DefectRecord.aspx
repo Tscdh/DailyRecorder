@@ -55,7 +55,7 @@
                 <input type="button" value="添加记录" onclick="adddefect();" /></div>
             <div id="searchdiv">
                 <%--            时间：<input type="text" id="s" />--%>
-                站名：<select id="station">
+                站名：<select id="station" onclick="search()">
                     <option>双龙变</option>
                     <option>丹溪变</option>
                     <option>芝堰变</option>
@@ -63,7 +63,7 @@
                     <option>信安变</option>
                     <option>夏金变</option>
                 </select>
-                <input type="button" value="点击搜索" onclick="search()" />
+                <input type="button" value="列出全部缺陷" onclick="alert('功能暂时为空！')" />
             </div>
             <div class="listdiv">
                 <table cellspacing="0" width="100%">

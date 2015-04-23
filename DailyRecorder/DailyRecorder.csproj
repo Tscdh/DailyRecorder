@@ -21,6 +21,10 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,7 +46,7 @@
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>bin\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\net35\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -65,6 +69,7 @@
     <Content Include="DefectRecord.aspx" />
     <Content Include="EditRule.aspx" />
     <Content Include="HeadMenu.ascx" />
+    <Content Include="Newtonsoft.Json.dll" />
     <Content Include="OtherRecord.aspx" />
     <Content Include="Record.xml" />
     <Content Include="RulerChanger.htm" />
@@ -105,6 +110,7 @@
     <Content Include="style\QuickPager.css" />
     <Content Include="style\Reset.css" />
     <Content Include="DR_SiteNavi.config" />
+    <Content Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -121,6 +127,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AccessHelper.cs" />
     <Compile Include="AjaxHandler.asmx.cs">
       <DependentUpon>AjaxHandler.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -189,6 +196,9 @@
   </ItemGroup>
   <ItemGroup>
     <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

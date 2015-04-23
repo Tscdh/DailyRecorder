@@ -25,8 +25,7 @@
         <div class="main">
             <asp:Repeater ID="OtherRepeater" runat="server">
                 <ItemTemplate>
-                    <div class="title">
-                        <%# DataBinder.Eval(Container.DataItem, "StationName")%></div>
+                    <div class="title"><%# DataBinder.Eval(Container.DataItem, "StationName")%></div>
                     <div class="normal">
                         <textarea class="text" rows="5" cols="1"><%# DataBinder.Eval(Container.DataItem, "Content")%></textarea>
                         <br />

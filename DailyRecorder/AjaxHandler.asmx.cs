@@ -24,14 +24,7 @@ namespace DailyRecorder
         //    return "Hello World";
         //}
 
-        [WebMethod]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public string WriteData()
-        {
-            string strSql = "select * from WorkTicket";
-            DataAccess.excuteSql(strSql);
-            return "true";
-        }
+        
 
         //其他记录部分方法
         [WebMethod]
@@ -41,7 +34,8 @@ namespace DailyRecorder
             //JavaScriptSerializer jss = new JavaScriptSerializer();
             //jss.DeserializeObject(a)
             string strSql = "update OtherRecord set Content='" + Content + "' where StationName='" + StationName + "'";//解析JSON后修改表
-            DataAccess.excuteSql(strSql);
+            //DataAccess.excuteSql(strSql);
+            AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             return "true";
         }
 
@@ -51,15 +45,12 @@ namespace DailyRecorder
         public string SearchDefectRecord(string StationName, string time)
         {
             DataSet a = new DataSet();
-            try
-            {
-                a = DataAccess.dataSet("select * from DefectRecord where StationName='" + StationName + "'");//暂不考虑时间
+            string strSql = "select * from DefectRecord where StationName='" + StationName + "'";
+           
+            a=AccessHelper.ExecuteDataset(CommandType.Text, strSql);//暂不考虑时间
                 //update DefectRecord set [Time]=#2015/2/13 18:00:00#
-            }
-            catch (Exception e)
-            {
-                throw new Exception(e.Message);
-            }
+            
+            
             string re = ConvertJson.ToJson(a);
 
             return re;
@@ -70,7 +61,7 @@ namespace DailyRecorder
         public string AddDefectRecord(string StationName, string Time, string Content)
         {
             string strSql = "insert into DefectRecord([StationName],[Time],[Content]) values('" + StationName + "',#" + Time + "#,'" + Content + "')";//解析JSON后修改表
-            DataAccess.excuteSql(strSql);
+            AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             return "true";
         }
 
@@ -79,7 +70,7 @@ namespace DailyRecorder
         public string DeleteDefectRecord(int id)
         {
             string strSql = "delete from DefectRecord where [id]=" + id.ToString();//解析JSON后修改表
-            DataAccess.excuteSql(strSql);
+            AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             return "true";
         }
 
@@ -90,7 +81,7 @@ namespace DailyRecorder
             //JavaScriptSerializer jss = new JavaScriptSerializer();
             //jss.DeserializeObject(a)
             string strSql = "update DefectRecord set [Content]='" + Content + "', [Time]=#" + Time + "#, [StationName]='" + StationName + "' where id=" + id.ToString();//解析JSON后修改表
-            DataAccess.excuteSql(strSql);
+            AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             return "true";
         }
 
@@ -113,21 +104,21 @@ namespace DailyRecorder
             if (tablename == "WeekRule")//加入表Weekrule
             {
                 strSql = "insert into " + tablename + "([StationName],[WeekTime],[Content]) values('" + StationName + "','" + Time + "','" + Content + "')";//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
                 return "true";
             }
 
             if (tablename == "MonthRule")
             {
                 strSql = "insert into " + tablename + "([StationName],[MonthTime],[Content]) values('" + StationName + "','" + Time + "','" + Content + "')";//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
                 return "true";
             }
             if (tablename == "YearRule")
             {
                 string[] temp = Time.Split(' ');//拆分月和日
                 strSql = "insert into " + tablename + "([StationName],[MonthTime],[Day],[Content]) values('" + StationName + "','" +temp[0]+ "','" + temp[1] + "','" + Content + "')";//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
                 return "true";
             }
 
@@ -142,22 +133,21 @@ namespace DailyRecorder
             if (tablename == "WeekRule")//加入表Weekrule
             {
                 strSql = "update "+tablename+" set [Content]='" + Content + "', [WeekTime]='" + Time + "', [StationName]='" + StationName + "' where id=" + id.ToString();;//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
                 return "true";
             }
 
             if (tablename == "MonthRule")
             {
                 strSql = "update " + tablename + " set [Content]='" + Content + "', [MonthTime]='" + Time + "', [StationName]='" + StationName + "' where id=" + id.ToString(); ;//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
                 return "true";
             }
             if (tablename == "YearRule")
             {
                 string[] temp = Time.Split(' ');//拆分月和日
                 strSql = "update " + tablename + " set [Content]='" + Content + "', [MonthTime]='" + temp[0] + "', [Day]='" + temp[1] + "', [StationName]='" + StationName + "' where id=" + id.ToString(); ;//解析JSON后修改表
-                DataAccess.excuteSql(strSql);
-                return "true";
+                AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             }
 
             return "false";
@@ -168,7 +158,7 @@ namespace DailyRecorder
         public string DeleteRule(int id, string tablename)
         {
             string strSql = "delete from "+tablename+" where [id]=" + id.ToString();//解析JSON后修改表
-            DataAccess.excuteSql(strSql);
+            AccessHelper.ExecuteNonQuery(CommandType.Text, strSql);
             return "true";
             
         }

@@ -13,8 +13,8 @@ namespace DailyRecorder
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            DataSet a = DataAccess.dataSet("select * from OtherRecord order by ID");
-            int i = a.Tables[0].Rows.Count;
+            //DataSet a = DataAccess.dataSet("select * from OtherRecord order by ID");
+            DataSet a = AccessHelper.ExecuteDataset(CommandType.Text, "select * from OtherRecord order by ID");
             OtherRepeater.DataSource = a;
             OtherRepeater.DataBind();
         }

@@ -14,7 +14,8 @@ namespace DailyRecorder
             DataSet a = new DataSet();
             try
             {
-                a = DataAccess.dataSet("select id,StationName,Content from WeekRule where [WeekTime]='" + dp.WeekTime + "' UNION select id,StationName,Content from MonthRule where [MonthTime]=" + dp.MouthTime + " UNION select id,StationName,Content from YearRule where [MonthTime]=" + dp.Mouth + " and [Day]="+dp.Day);//暂不考虑时间
+                string strSql="select id,StationName,Content from WeekRule where [WeekTime]='" + dp.WeekTime + "' UNION select id,StationName,Content from MonthRule where [MonthTime]=" + dp.MouthTime + " UNION select id,StationName,Content from YearRule where [MonthTime]=" + dp.Mouth + " and [Day]="+dp.Day;//暂不考虑时间
+                a = AccessHelper.ExecuteDataset(CommandType.Text, strSql);
                 //update DefectRecord set [Time]=#2015/2/13 18:00:00#
                 
             }
@@ -33,12 +34,12 @@ namespace DailyRecorder
             DataTable tb1,tb2,tb3 = new DataTable();
             try
             {
-                tb1 = DataAccess.dataTable("select * from WeekRule");//第一个
+                tb1 = AccessHelper.ExecuteDataTable(CommandType.Text,"select * from WeekRule");//第一个
                 a.Tables.Add(tb1);
-                
-                tb2 = DataAccess.dataTable("select * from MonthRule");//第二个
+
+                tb2 = AccessHelper.ExecuteDataTable(CommandType.Text, "select * from MonthRule");//第二个
                 a.Tables.Add(tb2);
-                tb3 = DataAccess.dataTable("select * from YearRule");//第三个
+                tb3 = AccessHelper.ExecuteDataTable(CommandType.Text, "select * from YearRule");//第三个
                 a.Tables.Add(tb3);
 
             }
